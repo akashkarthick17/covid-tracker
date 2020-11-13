@@ -46,7 +46,7 @@ export class CovidService {
       });
   }
   async getTotalDeathsByCountryCode(countryCode: string): Promise<number> {
-    return fetch(`${this.url}/api/v1/${countryCode}/active`)
+    return fetch(`${this.url}/api/v1/${countryCode}/deaths`)
       .then<Deaths>(res => res.json())
       .then<number>((res: Deaths) => {
         const { deaths } = res;
@@ -57,5 +57,4 @@ export class CovidService {
         }
       });
   }
-
 }
